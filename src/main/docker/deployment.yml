@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lms-page
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: lms-page
+  template:
+    metadata:
+      labels:
+        app: lms-page
+    spec:
+      containers:
+      - name: lms-page-container
+        image: 2022MT93036/lms-page:latest
+        ports:
+        - containerPort: 8080
